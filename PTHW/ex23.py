@@ -30,4 +30,4 @@ languages = open("languages.txt", encoding="utf-8")
 
 main(languages, encoding, error)
 
-#Doing a test 2
+#Doing test
