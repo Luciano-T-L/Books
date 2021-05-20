@@ -1,8 +1,10 @@
 returns  = []
-
+x = sum(returns)
 def function():
     #print("whatever")
-    returns.append(3)
+    returns.append(5)
 
 function()
-print(returns)
+x = sum(returns)
+print(x)
+

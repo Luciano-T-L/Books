@@ -5,17 +5,27 @@ gold = []
 def gold_room():
     print("This room is full of gold. How much do you take?")
 
-    choice = input("> ")
+    choice = (input("> "))
     if "0" in choice or "1" in choice:
         how_much = int(choice)
     else:
         dead("Man, learn to type a number.")
     
+    gold.append(how_much)
+    
     if how_much < 50:
-        print("Nice, you're not greedy, you win!")
-        exit(0)
+        print("Nice, you're not greedy!")
     else:
-        dead("You greedy bastard!")
+        print("You greedy bastard!")
+
+    print("Other door are open in freight and a open windows, wherer do you go?.")
+    choice1 = input("> ")
+
+    if choice1 == "windows":
+        windows(gold)
+    else:
+        print("test")
+
 
 
 def bear_room():
@@ -57,6 +67,20 @@ def cthulhu_room():
         cthulhu_room()
 
 
+def windows(gold):
+    print("You try to jump the windows.")
+    x = sum(gold)
+    if x >= 50:
+        print("You can't junt the windows, you're carrying to much gold.")
+        print("You have to go through the door.")
+        print(x)
+        exit()
+    elif x < 50:
+        print("You jump the windows and fell the fresh air in your face!")
+        print(x)
+        exit()
+
+
 
 def dead (why):
     print(why, "Good job!")
@@ -78,6 +102,7 @@ def start():
 
 
 start()
+
 
 
 
