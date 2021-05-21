@@ -79,6 +79,8 @@ def windows(gold):
         print("You jump the windows and fell the fresh air in your face!")
         print(x)
         exit()
+    else:
+        exit()
 
 
 
