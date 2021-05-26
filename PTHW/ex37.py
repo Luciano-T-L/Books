@@ -29,9 +29,11 @@ root.update()
 count = 0
 lost = False
 
-# Creating class and some atributes
+# A claas named bola and some atributes
 class Bola:
     def __init__(self, canvas, Barra, color):
+        # Bola function has-a __init__ fuction that takes sekf, canvas, Barra and color as parameters
+        # Below, classes attributes (Bola)
         self.canvas = canvas
         self.Barra = Barra
         # He is using canvas to give some atributes for the class Bola
@@ -87,8 +89,11 @@ class Bola:
             lost = True
 
 # Defining bar class, it's a rectangle, moves between two points
+# Make a class called Barra 
 class Barra:
+    # Class Barras has-a __init__ function that takes self, canvas, color as parameters
     def __init__(self, canvas, color):
+        # Below, class attributes (Barra)
         self.canvas = canvas
         self.id = canvas.create_rectangle(0, 0, length, 10, fill=color)
         self.canvas.move(self.id, 200, 400)
@@ -135,9 +140,10 @@ def start_game(event):
     canvas.itemconfig(game, text=" ")
 
 # calling functions, don't know what this "draws" fuctions does
-    time.sleep(1)
-    Barra.draw()
-    Bola.draw()
+# from Import time
+    time.sleep(1) # From time, take sleep function, call it with parameters self and 1
+    Barra.draw()  # From Barra, take draw function and call it
+    Bola.draw()  # From Bola, take draw function and call it
 
 # Creating function for scores
 def score():
