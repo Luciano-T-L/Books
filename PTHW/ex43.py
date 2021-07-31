@@ -19,7 +19,6 @@ class Engine(object):
             current_scene = self.scene_map.next_scene(next_scene_name)
         
         current_scene.enter()
-        
 
 
 class Scene(object):
@@ -29,10 +28,11 @@ class Scene(object):
         print("Subclass it and implent enter().")
         exit(1)
 
+
 class Death(Scene):
 
     quips = [
-        "Ypu died. You kind suck at this.",
+        "You died. You kind suck at this.",
         "Your mom would be proud... if she were smarther.",
         "Suck a loser.",
         "I have a small puppy that's better at this.",
@@ -40,8 +40,9 @@ class Death(Scene):
     ]
 
     def enter(self):
-        print(Death.quips[randint(0, len(self.quips) -1)])
+        print(Death.quips[randint(0, len(self.quips) - 1)])
         exit(1)
+
 
 class CentralCorridor(Scene):
 
@@ -103,7 +104,7 @@ class CentralCorridor(Scene):
 
 class LaserWeaponArmory(Scene):
     
-    def enter():
+    def enter(self):
         print(dedent("""
             You do a dive roll into the Weapon Armory, crouch and scan the room
             for more Gothons that might be hiding. It's dead quiet, too quiet.
@@ -118,12 +119,12 @@ class LaserWeaponArmory(Scene):
         guess = input("[keypad]> ")
         guesses = 0
 
-        while guess != code and guess < 10:
+        while guess != code and guesses < 9:
             print("BZZZZEDDDD!")
             guesses += 1
             guess = input("[keypad]> ")
 
-        if gues == code:
+        if guess == code:
             print(dedent("""
                 The container clicks open and the seal breaks, letting gas out.
                 You grab the neutron bomb and run as fast as you can to the
@@ -140,8 +141,9 @@ class LaserWeaponArmory(Scene):
                 """))
             return 'death'
 
+
 class TheBridge(Scene):
-    def enter():
+    def enter(self):
         print(dedent("""
             You burst into the Bridge with the neutron descruct bomb
             under your arms and surprise 5 Gothons who are trying to
@@ -181,8 +183,9 @@ class TheBridge(Scene):
             print("DOES NOT COMPUTE!")
             return 'the_bridge'
 
+
 class EscapePod(Scene):
-    def enter():
+    def enter(self):
         print(dedent("""
             You rush through the ship desperately trying to make it to
             the scape pod before the whole ship explodes. It seems like
@@ -193,7 +196,7 @@ class EscapePod(Scene):
             do you take?
         """))
 
-        good_pod = randint(1,5)
+        good_pod = randint(1, 5)
         guess = input("[pod #]> ")
 
         if int(guess) != good_pod:
@@ -215,6 +218,7 @@ class EscapePod(Scene):
             """))
 
             return 'finished'
+
 
 class Finished(Scene):
 
@@ -239,7 +243,7 @@ class Map(object):
 
     def next_scene(self, scene_name):
         val = Map.scenes.get(scene_name)
-        return val 
+        return val
 
     def opening_scene(self):
         return self.next_scene(self.start_scene)
